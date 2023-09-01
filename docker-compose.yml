@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  dev-db:
+    image: postgres:15.0
+    container_name: dev-db
+    ports:
+      - 5432:5432
+
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: nhannt-dev
+      POSTGRES_DB: discord
+    networks:
+      - next-discord
+  
+networks:
+  next-discord:
