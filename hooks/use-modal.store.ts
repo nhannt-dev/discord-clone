@@ -5,15 +5,15 @@ export type ModalType = "createServer" | "invite" | "editServer" | "members" | "
 
 interface ModalData {
     server?: Server
-    channel?: Channel
-    channelType?: ChannelType
-    apiUrl?: string
-    query?: Record<string, any>
+    // channel?: Channel
+    // channelType?: ChannelType
+    // apiUrl?: string
+    // query?: Record<string, any>
 }
 
 interface ModalStore {
     type: ModalType | null
-    // data: ModalData
+    data: ModalData
     isOpen: boolean
     onOpen: (type: ModalType, data?: ModalData) => void
     onClose: () => void
@@ -21,7 +21,8 @@ interface ModalStore {
 
 export const useModal = create<ModalStore>((set) => ({
     type: null,
+    data: {},
     isOpen: false,
-    onOpen: (type) => set({ isOpen: true, type }),
+    onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
     onClose: () => set({ type: null, isOpen: false })
 }))

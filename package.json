@@ -12,12 +12,13 @@
     "prisma": "npx prisma init",
     "studio": "npx prisma studio",
     "generate": "npx prisma generate",
+    "reset": "npx prisma migrate reset",
     "push": "npx prisma db push",
     "db:rm": "docker compose rm dev-db --stop --force --volumes",
     "db:build": "docker compose up dev-db -d",
     "prisma:deploy": "npx prisma migrate deploy",
     "db:restart": "yarn db:rm && yarn db:build && yarn generate && yarn push",
-    "component": "npx shadcn-ui@latest add scroll-area"
+    "component": "npx shadcn-ui@latest add select"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.3",
