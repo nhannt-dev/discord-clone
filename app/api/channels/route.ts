@@ -13,7 +13,6 @@ export async function POST(req: Request) {
         if (!profile) return new NextResponse('Unauthorized', { status: 401 })
         if (!serverId) return new NextResponse('Server ID missing', { status: 400 })
         if (name === 'general') return new NextResponse('Name cannot be "general"', { status: 400 })
-
         const server = await db.server.update({
             where: {
                 id: serverId,
